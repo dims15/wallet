@@ -14,6 +14,8 @@ services:
       interval: 10s
       retries: 5
       timeout: 5s
+    networks:
+      - app-network
 
   redis:
     image: redis:latest
@@ -24,6 +26,8 @@ services:
       interval: 10s
       retries: 5
       timeout: 5s
+    networks:
+      - app-network
 
   web:
     build: .
@@ -43,7 +47,13 @@ services:
       DATABASE_USER: root
       DATABASE_PASSWORD: root
       REDIS_URL: redis://redis:6379
+    networks:
+      - app-network
 
 volumes:
   db_data:
     driver: local
+
+networks:
+  app-network:
+    driver: bridge

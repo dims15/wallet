@@ -33,6 +33,8 @@ gem "bootsnap", require: false
 
 gem 'mysql2', '>= 0.5.3'
 
+gem 'bcrypt'
+
 gem 'redis'
 gem 'redis-rails'
 
