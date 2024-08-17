@@ -15,6 +15,16 @@ services:
       retries: 5
       timeout: 5s
 
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
@@ -25,11 +35,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
       DATABASE_HOST: db
       DATABASE_NAME: WaletTrans
       DATABASE_USER: root
       DATABASE_PASSWORD: root
+      REDIS_URL: redis://redis:6379
 
 volumes:
   db_data:
