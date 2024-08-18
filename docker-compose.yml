@@ -49,6 +49,8 @@ services:
       REDIS_URL: redis://redis:6379
     networks:
       - app-network
+    stdin_open: true
+    tty: true
 
 volumes:
   db_data:

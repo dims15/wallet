@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_type: 1
+  balance: 9.99
+  source_account_id: 
+  target_account_id: 
+
+two:
+  transaction_type: 1
+  balance: 9.99
+  source_account_id: 
+  target_account_id: 
