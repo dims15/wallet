@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Customer < ApplicationRecord
 	validates :email, presence: true, uniqueness: true
 
 	def authenticate(password)
