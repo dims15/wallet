@@ -1,4 +1,10 @@
 module Transactions
-  class AmountIsZero < StandardError
+  class ZeroAmount < StandardError
+  end
+
+  class InsufficientBalance < StandardError
+  end
+
+  class SameSourceAndTargetAccount < StandardError
   end
 end

@@ -1,2 +1,0 @@
-class WithdrawsController < ApplicationController
-end

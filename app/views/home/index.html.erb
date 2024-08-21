@@ -2,8 +2,9 @@
 <p>You are successfully logged in.</p>
 
 <h2>Choose a Transaction</h2>
-<%= link_to 'Deposit', new_transactions_deposit_path, class: 'btn btn-secondary' %>
-<%= link_to 'Withdraw', new_withdraw_path, class: 'btn btn-secondary' %>
-<%= link_to 'Transfer', new_transfer_path, class: 'btn btn-secondary' %>
+<%= link_to 'Deposit', new_transactions_deposit_path, class: 'btn btn-secondary' %> </br>
+<%= link_to 'Withdraw', new_transactions_withdraw_path, class: 'btn btn-secondary' %> </br>
+<%= link_to 'Transfer', new_transactions_transfer_path, class: 'btn btn-secondary' %> </br>
+<%= link_to 'Stocks', new_stock_path, class: 'btn btn-secondary' %> </br>
 
 <%= button_to 'Logout', logout_path, method: :delete %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_20_091544) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_21_095750) do
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "account_type", null: false
     t.decimal "balance", precision: 16, scale: 2, null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_20_091544) do
     t.datetime "updated_at", null: false
     t.bigint "source_account_id"
     t.bigint "target_account_id"
+    t.string "description", null: false
     t.index ["source_account_id"], name: "index_transactions_on_source_account_id"
     t.index ["target_account_id"], name: "index_transactions_on_target_account_id"
   end

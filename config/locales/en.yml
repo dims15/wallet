@@ -29,3 +29,18 @@
 
 en:
   hello: "Hello world"
+  account:
+    balance_added: "Success added %{amount} to your account"
+    balance_deducted: "Success deduct %{amount} from your account"
+    errors:
+      not_found: "Account not found"
+  transaction:
+    log_deposit: "Deposit"
+    log_withdrawal: "Withdraw"
+    log_debit_transfer: "Debit transfer"
+    log_credit_transfer: "Credit transfer"
+    success_transfer: "Success transfer %{amount} to %{recipient_name}"
+    errors:
+      zero_amount: "Amount must be positive value"
+      equal_source_and_target_account: "Unable transfer from self account to self account"
+      insufficient_balance: "Insufficient balance"

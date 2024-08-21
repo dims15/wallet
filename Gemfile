@@ -36,6 +36,7 @@ gem 'mysql2', '>= 0.5.3'
 gem 'bcrypt'
 
 gem 'byebug', group: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'redis'
 gem 'redis-rails'

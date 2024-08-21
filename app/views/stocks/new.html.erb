@@ -1,0 +1,24 @@
+<h1>Fetch Stock Price</h1>
+
+<%= form_with url: fetch_stock_path, method: :get, local: true do |form| %>
+  <div class="field">
+    <%= form.label :identifier, "Stock Identifier" %>
+    <%= form.text_field :identifier, placeholder: "Enter Stock Identifier" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Get', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', root_path, class: 'btn btn-secondary' %>
+  </div>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <% if @stock_data.present? %>
+    <h2>Stock Data</h2>
+    <pre><%= @stock_data.inspect %></pre>
+  <% end %>
+<% end %>

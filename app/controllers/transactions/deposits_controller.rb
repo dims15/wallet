@@ -1,26 +1,20 @@
 module Transactions
   class DepositsController < ApplicationController
+    include FlashAndRenderConcern
+
     def new
       # No need to instantiate @transaction
     end
 
     def create
-      DepositService.new(customer_id: session[:user_id], amount: params[:amount]).execute
+      deposit_service = DepositService.new(customer_id: session[:user_id], amount: params[:amount])
+      deposit_service.execute
       
-      set_flash_and_render('Amount added to your account')
-    rescue ActiveRecord::RecordInvalid => e
-      set_flash_and_render(e.message, :alert)
-    rescue ActiveRecord::RecordNotFound
-      set_flash_and_render('Account not found', :alert)
-    rescue AmountIsZero
-      set_flash_and_render("Amount can't be empty or 0", :alert)
-    end
-
-    private
-
-    def set_flash_and_render(message, flash_type = :notice, template = :new)
-      flash.now[flash_type] = message
-      render template
+      if deposit_service.error_message.present?
+        set_flash_and_render(deposit_service.error_message, :alert)
+      else
+        set_flash_and_render(I18n.t('account.balance_added', amount: params[:amount]))
+      end
     end
   end
 end

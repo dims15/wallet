@@ -1,0 +1,30 @@
+<h1>Transfer</h1>
+
+<%= form_with(url: transactions_transfers_path, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :target_account, 'Target Account' %>
+    <%= form.text_field :target_account, name: 'target_account' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount, 'Amount Transferred' %>
+    <%= form.text_field :amount, name: 'amount' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Save' %>
+    <%= link_to 'Cancel', root_path, class: 'button' %>
+  </div>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+<% end %>
