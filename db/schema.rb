@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_19_162627) do
+ActiveRecord::Schema[7.2].define(version: 2024_08_20_091544) do
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "account_type"
+    t.string "account_type", null: false
     t.decimal "balance", precision: 16, scale: 2, null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "account_number", null: false
-    t.bigint "customers_id"
+    t.bigint "customers_id", null: false
+    t.index ["account_number"], name: "index_accounts_on_account_number", unique: true
     t.index ["customers_id"], name: "index_accounts_on_customers_id"
   end
 
@@ -29,17 +30,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_19_162627) do
     t.datetime "birth_date", null: false
     t.string "phone", null: false
     t.string "address", null: false
-    t.integer "customer_type", null: false
+    t.string "customer_type", null: false
     t.json "additional_info"
     t.datetime "last_login"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_customers_on_username", unique: true
   end
 
   create_table "transactions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "transaction_type"
-    t.decimal "amount", precision: 16, scale: 2
+    t.string "transaction_type", null: false
+    t.decimal "amount", precision: 16, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "source_account_id"
