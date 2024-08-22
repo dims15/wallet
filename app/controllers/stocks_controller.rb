@@ -1,4 +1,6 @@
 class StocksController < ApplicationController
+  before_action :require_login
+  
   def new
     @stock_data = nil
   end

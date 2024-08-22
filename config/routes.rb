@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :deposits, only: [:new, :create]
     resources :withdraws, only: [:new, :create]
     resources :transfers, only: [:new, :create]
+    resources :check_balance, only: [:new]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

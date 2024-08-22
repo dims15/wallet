@@ -8,7 +8,6 @@ module LatestStockPrice
     RAPIDAPI_HOST = ENV['RAPIDAPI_HOST'].freeze
 
     def initialize
-      byebug
       @base_url = "https://#{RAPIDAPI_HOST}/"
     end
 

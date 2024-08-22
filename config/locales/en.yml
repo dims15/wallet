@@ -40,6 +40,7 @@ en:
     log_debit_transfer: "Debit transfer"
     log_credit_transfer: "Credit transfer"
     success_transfer: "Success transfer %{amount} to %{recipient_name}"
+    your_current_balance: "Your current balance is %{balance}"
     errors:
       zero_amount: "Amount must be positive value"
       equal_source_and_target_account: "Unable transfer from self account to self account"

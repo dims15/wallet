@@ -2,6 +2,7 @@
 <p>You are successfully logged in.</p>
 
 <h2>Choose a Transaction</h2>
+<%= link_to 'Check Current Balance', new_transactions_check_balance_path, class: 'btn btn-secondary' %> </br>
 <%= link_to 'Deposit', new_transactions_deposit_path, class: 'btn btn-secondary' %> </br>
 <%= link_to 'Withdraw', new_transactions_withdraw_path, class: 'btn btn-secondary' %> </br>
 <%= link_to 'Transfer', new_transactions_transfer_path, class: 'btn btn-secondary' %> </br>

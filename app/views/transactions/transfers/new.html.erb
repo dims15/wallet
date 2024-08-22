@@ -11,6 +11,8 @@
     <%= form.text_field :amount, name: 'amount' %>
   </div>
 
+  <%= form.hidden_field :idempotency_key, value: SecureRandom.uuid %>
+  
   <div class="actions">
     <%= form.submit 'Save' %>
     <%= link_to 'Cancel', root_path, class: 'button' %>

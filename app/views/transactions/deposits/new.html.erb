@@ -1,10 +1,12 @@
 <h1>Deposit</h1>
 
-<%= form_with(url: transactions_deposits_path, local: true) do |form| %>
+<%= form_with(url: transactions_deposits_path, id: 'deposit-form', local: true) do |form| %>
   <div class="field">
     <%= form.label :amount %>
     <%= form.text_field :amount, name: 'amount' %>
   </div>
+
+  <%= form.hidden_field :idempotency_key, value: SecureRandom.uuid %>
 
   <div class="actions">
     <%= form.submit 'Save' %>
@@ -23,3 +25,4 @@
     </div>
   <% end %>
 <% end %>
+
